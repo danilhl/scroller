@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gap: 0.5em;
+  --index: calc(1vw + 1vh);
+  --color-dark: #000;
+}
+
+body {
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  text-transform: uppercase;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  letter-spacing: 0.2em;
+  font-size: calc(var(--index) * 2);
+  position: absolute;
+  font-weight: 400;
+  text-align: center;
+  opacity: 0.8;
+  margin-top: 0.2em;
+}
+
+.header span {
+  display: block;
+  font-family: Helvetica, sans-serif;
+  font-size: calc(var(--index) * 1);
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.gallary {
+  width: 30vw;
+  column-width: 2em;
+  gap: var(--gap);
+  will-change: transform;
+  transform: scale(9);
+  transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.gallary__item {
+  margin-bottom: var(--gap);
+  transform: scale(1.001);
+  will-change: transform;
+  transform: rotateZ(1deg);
+  transition: transform 0.5s linear;
+}
+
+.gallary__item:hover {
+  transform: scale(1.1);
+}
+
+.gallary__item img {
+  width: 100%;
+  display: block;
+}
+
+.loaded .gallary {
+  opacity: 1;
+}
+
+.loaded .header span {
+  opacity: 0;
+}
